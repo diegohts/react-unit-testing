@@ -4,5 +4,5 @@ import App from './App';
 test('HelloWorld', () => {
     const { getByText } = render(<App />);
 
-    expect(getByText('HelloWorld')).toBeTruthy();
+    expect(getByText('Hello World')).toBeTruthy();
 })
