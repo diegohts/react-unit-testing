@@ -11,8 +11,8 @@ describe('App Component', () => {
         expect(getByText('Henrique')).toBeInTheDocument();
     });
 
-    it('should be able to add new item to the list', () => {
-        const { getByText, getByPlaceholderText } = render(<App />);
+    it('should be able to add new item to the list', async () => {
+        const { getByText, getByPlaceholderText, findByText } = render(<App />);
 
         const inputElement = getByPlaceholderText('Novo item');
         const addButton = getByText('Adicionar');
@@ -20,6 +20,6 @@ describe('App Component', () => {
         userEvent.type(inputElement, 'Novo');
         userEvent.click(addButton);
 
-        expect(getByText('Novo')).toBeInTheDocument();
+        expect(await findByText('Novo')).toBeInTheDocument();
     });
 });
