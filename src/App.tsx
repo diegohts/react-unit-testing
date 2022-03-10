@@ -1,10 +1,11 @@
 import { useState } from "react"
 
 function App() {
+  const [newItem, setNewItem] = useState('');
   const [list, setList] = useState(['Diego', 'Fernando', 'Henrique']);
 
   function addToList() {
-    setList(state => [...state, 'Novo']);
+    setList(state => [...state, newItem]);
   }
   
   return (
@@ -18,6 +19,7 @@ function App() {
             )
           }
         </ul>
+        <input placeholder="Novo item" value={newItem} onChange={e => setNewItem(e.target.value)} />
         <button onClick={addToList}>Adicionar</button>
       </>
   )
